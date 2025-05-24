@@ -1,0 +1,201 @@
+/* Colores base */
+:root {
+  --color1: #b6f9c3;
+  --color2: #c8fad2;
+  --color3: #dafce1;
+  --color4: #edfdf0;
+  --color5: #ffffff;
+  --primary-text: #065f46; /* Verde oscuro para texto */
+  --shadow-color: rgba(182, 249, 195, 0.6);
+  --shadow-strong: rgba(98, 168, 96, 0.35);
+  --shadow-soft: rgba(182, 249, 195, 0.25);
+}
+
+/* Fondos para tarjetas y secciones */
+.bg-color1 {
+  background: var(--color1);
+}
+.bg-color2 {
+  background: var(--color2);
+}
+.bg-color3 {
+  background: var(--color3);
+}
+.bg-color4 {
+  background: var(--color4);
+}
+.bg-color5 {
+  background: var(--color5);
+}
+
+/* Tarjetas pilares con hover destacado y sombra avanzada */
+.card-hover {
+  border-radius: 1.5rem;
+  background-color: var(--color5);
+  box-shadow:
+    0 2px 8px var(--shadow-soft),
+    inset 0 0 6px var(--color1);
+  transition:
+    transform 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+    border-color 0.35s ease;
+  cursor: pointer;
+  border: 2px solid transparent;
+  padding: 2.25rem 2rem;
+}
+.card-hover:hover {
+  transform: translateY(-12px) scale(1.06);
+  box-shadow:
+    0 15px 35px var(--shadow-strong),
+    inset 0 0 15px var(--color1);
+  border-color: var(--color1);
+}
+
+/* Iconos circulares con animación pulse mejorada y efecto glow */
+.icon-circle {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.75rem auto;
+  font-size: 2.75rem;
+  color: var(--primary-text);
+  background: var(--color2);
+  box-shadow:
+    0 0 14px var(--color1),
+    0 0 20px var(--color1) inset;
+  animation: pulse-glow 3s infinite ease-in-out;
+  transition: box-shadow 0.4s ease;
+}
+.icon-circle:hover {
+  box-shadow:
+    0 0 28px var(--color1),
+    0 0 40px var(--color1) inset;
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow:
+      0 0 14px var(--color1),
+      0 0 20px var(--color1) inset;
+  }
+  50% {
+    box-shadow:
+      0 0 28px var(--color1),
+      0 0 40px var(--color1) inset;
+  }
+}
+
+/* Títulos */
+h3 {
+  color: var(--primary-text);
+  font-weight: 800;
+  font-size: 2.1rem;
+  text-align: center;
+  letter-spacing: 0.04em;
+  margin-bottom: 1rem;
+  text-shadow: 0 1px 3px rgba(6, 95, 70, 0.3);
+}
+
+/* Texto */
+.text-gray-700 {
+  color: var(--primary-text);
+  font-weight: 600;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  text-align: center;
+  max-width: 360px;
+  margin: 0 auto;
+  user-select: text;
+}
+
+/* Sección Nuestra Historia imagen decorativa con animación suave */
+.pulse-slow {
+  animation: pulse-glow-slow 6s infinite ease-in-out;
+  background: var(--color1);
+  box-shadow:
+    0 0 20px var(--color1),
+    0 0 40px var(--color1) inset;
+  cursor: default;
+  user-select: none;
+}
+
+@keyframes pulse-glow-slow {
+  0%, 100% {
+    box-shadow:
+      0 0 20px var(--color1),
+      0 0 40px var(--color1) inset;
+  }
+  50% {
+    box-shadow:
+      0 0 32px var(--color1),
+      0 0 52px var(--color1) inset;
+  }
+}
+
+/* Estadísticas con fuente fuerte y colores vibrantes */
+.text-primary {
+  color: var(--color1);
+  font-weight: 900;
+  font-size: 2.75rem;
+  text-shadow: 0 2px 6px rgba(182, 249, 195, 0.7);
+}
+.text-secondary {
+  color: #4ade80;
+  font-weight: 900;
+  font-size: 2.75rem;
+  text-shadow: 0 2px 6px rgba(74, 222, 128, 0.7);
+}
+.text-accent {
+  color: #22c55e;
+  font-weight: 900;
+  font-size: 2.75rem;
+  text-shadow: 0 2px 6px rgba(34, 197, 94, 0.7);
+}
+.text-warm {
+  color: #a3e635;
+  font-weight: 900;
+  font-size: 2.75rem;
+  text-shadow: 0 2px 6px rgba(163, 230, 53, 0.7);
+}
+
+/* Botones iconos del equipo directivo con animación y sombra mejorada */
+.w-8.h-8 {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  background-color: var(--color4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition:
+    background-color 0.35s ease,
+    color 0.35s ease,
+    box-shadow 0.35s ease;
+  box-shadow: 0 0 6px var(--shadow-soft);
+  cursor: pointer;
+  user-select: none;
+}
+.w-8.h-8:hover {
+  background-color: var(--color1);
+  color: #ffffff !important;
+  box-shadow: 0 0 14px var(--color1);
+  transform: scale(1.12);
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Añadido: estilos para párrafos con bullets en valores para mejor visibilidad */
+.text-gray-700 > .space-y-2 > p {
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: var(--primary-text);
+  text-align: justify;
+  text-align: center;
+  letter-spacing: 0.03em;
+  text-shadow: 0 1px 2px rgba(6, 95, 70, 0.15);
+}
+.text-justify {
+  text-align: justify;
+}

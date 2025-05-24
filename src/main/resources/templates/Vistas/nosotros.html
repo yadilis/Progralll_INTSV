@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="es"  xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Nosotros</title>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Flowbite CSS -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.7.0/flowbite.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+  />
+
+
+  <!-- CSS externo -->
+  <link rel="stylesheet" href="css/nosotros.css" />
+  <link rel="stylesheet" href="css/index.css">
+  <link rel="stylesheet" th:href="@{/css/footer.css}" />
+</head>
+<body>
+
+<!-- Navbar -->
+<!-- Header con barra de navegación mejorada -->
+<nav class="navbar">
+  <div class="navbar-container">
+    <a href="index.html" class="logo">
+      <span class="logo-icon">🏥</span>
+      Inmente
+    </a>
+
+    <button class="menu-toggle" onclick="toggleMenu()">
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+    </button>
+
+    <div class="nav-menu">
+      <a href="/" class="nav-link active">
+        <span class="nav-icon">🏠</span>
+        Inicio
+      </a>
+      <a href="nosotros" class="nav-link">
+        <span class="nav-icon">👥</span>
+        Nosotros
+      </a>
+
+      <a href="contacto" class="nav-link">
+        <span class="nav-icon">📞</span>
+        Contacto
+      </a>
+      <a href="formulario" class="nav-link">
+        <span class="nav-icon">🩺</span>
+        Registrarse
+      </a>
+      <a href="login" class="nav-link login-btn">
+        <span class="nav-icon">👤</span>
+        Iniciar Sesión
+      </a>
+    </div>
+  </div>
+</nav>
+<!-- Hero Section -->
+<section class="relative py-20 overflow-hidden bg-cover bg-center bg-no-repeat" style="background-image: url('https://images.unsplash.com/photo-1544027993-37dbfe43562a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');">
+  <div class="absolute inset-0 bg-gradient-to-r from-blue-300/60 to-teal-200/60"></div>
+  <div class="absolute top-10 left-10 w-32 h-32 bg-white bg-opacity-10 rounded-full floating-animation"></div>
+  <div class="absolute bottom-10 right-10 w-24 h-24 bg-white bg-opacity-10 rounded-full floating-animation" style="animation-delay: -3s;"></div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <div class="text-center">
+      <h1 class="text-4xl md:text-6xl font-bold mb-6 text-white">
+        Conoce Nuestro
+        <span class="block text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 to-pink-300">
+                    Compromiso Contigo
+                </span>
+      </h1>
+      <p class="text-xl md:text-2xl text-white max-w-3xl mx-auto leading-relaxed">
+        Más de 15 años dedicados a tu bienestar mental y emocional,
+        con un equipo de profesionales comprometidos con tu crecimiento personal.
+      </p>
+    </div>
+  </div>
+</section>
+
+
+<!-- Misión, Visión, Valores -->
+<section class="py-20 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Nuestros Pilares</h2>
+      <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+        Los valores que nos guían en cada sesión y nos impulsan a ser mejores cada día
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-8">
+      <!-- Misión -->
+      <div class="bg-gradient-to-br from-blue-50 to-indigo-100 p-8 rounded-2xl card-hover">
+        <div class="icon-circle mb-6">
+          <i class="fas fa-bullseye"></i>
+        </div>
+        <h3 class="text-2xl font-bold text-gray-900 text-center mb-4">Misión</h3>
+        <p class="text-gray-700 text-center leading-relaxed">
+          Brindar servicios de psicoterapia de alta calidad,
+          promoviendo el bienestar mental y emocional de nuestros pacientes
+          a través de un enfoque integral, personalizado y basado en evidencia científica.
+        </p>
+      </div>
+
+      <!-- Visión -->
+      <div class="bg-gradient-to-br from-blue-50 to-indigo-100 p-8 rounded-2xl card-hover">
+        <div class="icon-circle mb-6">
+          <i class="fas fa-eye"></i>
+        </div>
+        <h3 class="text-2xl font-bold text-gray-900 text-center mb-4">Visión</h3>
+        <p class="text-gray-700 text-center leading-relaxed">
+          Ser reconocidos como el centro de referencia en salud mental,
+          innovando constantemente en nuestros métodos terapéuticos
+          y contribuyendo al desarrollo de una sociedad más consciente y equilibrada.
+        </p>
+      </div>
+
+      <!-- Valores -->
+      <div class="bg-gradient-to-br from-blue-50 to-indigo-100 p-8 rounded-2xl card-hover">
+        <div class="icon-circle mb-6">
+          <i class="fas fa-heart"></i>
+        </div>
+        <h3 class="text-2xl font-bold text-gray-900 text-center mb-4">Valores</h3>
+        <div class="text-gray-700 text-center">
+          <div class="space-y-2 text-justify">
+            <p class="font-medium">• Empatía y Comprensión</p>
+            <p class="font-medium">• Confidencialidad Absoluta</p>
+            <p class="font-medium">• Excelencia Profesional</p>
+            <p class="font-medium">• Respeto a la Diversidad</p>
+            <p class="font-medium">• Compromiso Social</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Nuestra Historia -->
+<section class="py-20 bg-gray-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid lg:grid-cols-2 gap-12 items-center">
+      <div>
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+          Nuestra Historia
+        </h2>
+        <div class="space-y-6 text-gray-700 leading-relaxed">
+          <p class="text-gray-700 text-justify">
+            Fundado en 2008 por la Dra. María González, nuestro centro nació
+            con la visión de crear un espacio seguro y acogedor donde las personas
+            pudieran encontrar el apoyo profesional que necesitaban.
+          </p>
+          <p>
+            Durante más de 15 años, hemos crecido de ser una consulta individual
+            a convertirse en un centro integral con un equipo multidisciplinario
+            de psicólogos, psiquiatras y terapeutas especializados.
+          </p>
+          <p>
+            Hemos acompañado a más de 3,000 personas en su proceso de crecimiento
+            personal, adaptándonos constantemente a las nuevas necesidades sociales
+            y avances en el campo de la psicología.
+          </p>
+        </div>
+
+        <div class="mt-8 grid grid-cols-3 gap-4">
+          <div class="text-center">
+            <div class="text-3xl font-bold text-primary-text">15+</div>
+            <div class="text-sm text-gray-600">Años de Experiencia</div>
+          </div>
+          <div class="text-center">
+            <div class="text-3xl font-bold text-secondary-text">3000+</div>
+            <div class="text-sm text-gray-600">Pacientes Atendidos</div>
+          </div>
+          <div class="text-center">
+            <div class="text-3xl font-bold text-accent-text">20+</div>
+            <div class="text-sm text-gray-600">Especialistas</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="overflow-hidden rounded-2xl shadow-lg">
+        <img src="https://images.pexels.com/photos/9162030/pexels-photo-9162030.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+             alt="Nuestra Historia"
+             class="w-full h-full object-cover" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Directores -->
+<section class="py-20 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <h2 class="text-3xl font-bold text-center text-gray-900 mb-12">Directores</h2>
+
+    <div class="grid md:grid-cols-3 gap-10">
+      <!-- Director 1 -->
+      <div class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover">
+        <div class="h-64 bg-gradient-to-br from-blue-400 to-purple-500 relative">
+          <img src="https://images.pexels.com/photos/6762866/pexels-photo-6762866.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+               alt="Dr. Juan Pérez"
+               class="w-full h-full object-cover" />
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-gray-900 mb-2">Dr. Juan Pérez</h3>
+          <p class="text-primary-text font-medium mb-3">Psicólogo Clínico</p>
+          <p class="text-gray-600 text-sm mb-4">
+            Especialista en terapia cognitivo-conductual.
+            Más de 12 años de experiencia trabajando con adultos.
+          </p>
+          <div class="flex space-x-3">
+            <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center">
+              <i class="fab fa-linkedin text-secondary-text text-sm"></i>
+            </div>
+            <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center">
+              <i class="fas fa-envelope text-secondary-text text-sm"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Director 2 -->
+      <div class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover">
+        <div class="h-64 bg-gradient-to-br from-green-400 to-blue-500 relative">
+          <img src="https://images.pexels.com/photos/8376277/pexels-photo-8376277.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+               alt="Lic. Laura Ramos"
+               class="w-full h-full object-cover" />
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-gray-900 mb-2">Dra. Ana Martínez</h3>
+          <p class="text-secondary-text font-medium mb-3">Psicóloga Infantil</p>
+          <p class="text-gray-600 text-sm mb-4">
+            Experta en desarrollo infantil y terapia de juego.
+            Ayuda a niños y familias a superar dificultades emocionales.
+          </p>
+          <div class="flex space-x-3">
+            <div class="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center">
+              <i class="fab fa-twitter text-secondary-text text-sm"></i>
+            </div>
+            <div class="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center">
+              <i class="fas fa-phone text-secondary-text text-sm"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Director 3 -->
+      <div class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover">
+        <div class="h-64 bg-gradient-to-br from-pink-400 to-red-500 relative">
+          <img src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+               alt="Dra. Ana Martínez"
+               class="w-full h-full object-cover" />
+        </div>
+
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-gray-900 mb-2">Lic. Laura Ramos</h3>
+          <p class="text-accent-text font-medium mb-3">Terapeuta Familiar & Coach</p>
+          <p class="text-gray-600 text-sm mb-4">
+            Experta en terapia sistémica y coaching emocional.
+            Más de 10 años ayudando a familias y parejas.
+          </p>
+          <div class="flex space-x-3">
+            <div class="w-8 h-8 bg-pink-100 rounded-full flex items-center justify-center">
+              <i class="fab fa-instagram text-accent-text text-sm"></i>
+            </div>
+            <div class="w-8 h-8 bg-pink-100 rounded-full flex items-center justify-center">
+              <i class="fas fa-comment text-accent-text text-sm"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Certificaciones -->
+<section class="py-20 bg-gray-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <h2 class="text-3xl font-bold text-center text-gray-900 mb-12">Certificaciones</h2>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-10">
+      <div class="bg-white p-6 rounded-xl shadow-sm text-center card-hover">
+        <div class="icon-circle mx-auto mb-4">
+          <i class="fas fa-certificate"></i>
+        </div>
+        <p class="font-medium text-gray-900">Colegio Profesional de Psicólogos</p>
+      </div>
+
+      <div class="bg-white p-6 rounded-xl shadow-sm text-center card-hover">
+        <div class="icon-circle secondary mx-auto mb-4">
+          <i class="fas fa-award"></i>
+        </div>
+        <p class="font-medium text-gray-900">Asociación Nacional de Psicoterapia</p>
+      </div>
+
+      <div class="bg-white p-6 rounded-xl shadow-sm text-center card-hover">
+        <div class="icon-circle accent mx-auto mb-4">
+          <i class="fas fa-medal"></i>
+        </div>
+        <p class="font-medium text-gray-900">Certificación Internacional en Terapia Cognitiva</p>
+      </div>
+
+      <div class="bg-white p-6 rounded-xl shadow-sm text-center card-hover">
+        <div class="icon-circle warm mx-auto mb-4">
+          <i class="fas fa-star"></i>
+        </div>
+        <p class="font-medium text-gray-900">Premio a la Excelencia en Psicoterapia</p>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Footer -->
+<footer class="footer-personalizado">
+
+  <ul class="footer-links">
+    <li><a href="#">Acerca de</a></li>
+    <li><a href="#">Privacidad</a></li>
+    <li><a href="#">Licencias</a></li>
+    <li><a href="#">Contacto</a></li>
+  </ul>
+  <div class="footer-social">
+    <a href="#"><i class="fab fa-facebook-f"></i></a>
+    <a href="#"><i class="fab fa-twitter"></i></a>
+    <a href="#"><i class="fab fa-instagram"></i></a>
+  </div>
+  <hr />
+  <p class="footer-copy">© 2025 <a href="/">Inmente</a>. Todos los derechos reservados.</p>
+
+</footer>
+
+
+</body>
+</html>

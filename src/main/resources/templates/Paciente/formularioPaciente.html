@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registro de Paciente</title>
+
+    <!-- Tailwind + Flowbite -->
+    <script src="https://unpkg.com/flowbite@1.6.5/dist/flowbite.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.css" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="stylesheet" th:href="@{/css/index.css}" />
+
+    <link rel="stylesheet" th:href="@{/css/footer.css}" />
+
+
+    <!-- Estilos personalizados -->
+    <style>
+        :root {
+          --color1: #b6f9c3;
+          --color2: #c8fad2;
+          --color3: #dafce1;
+          --color4: #edfdf0;
+          --color5: #ffffff;
+        }
+
+        .bg-degrade {
+          background: linear-gradient(135deg, var(--color1), var(--color4));
+        }
+
+        .card {
+          background: var(--color5);
+          box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+          border-radius: 1.5rem;
+          backdrop-filter: blur(10px);
+        }
+
+        .form-input {
+          transition: all 0.3s ease-in-out;
+        }
+
+        .form-input:focus {
+          outline: none;
+          border-color: var(--color1);
+          box-shadow: 0 0 0 4px var(--color2);
+          transform: translateY(-2px);
+        }
+
+        .form-input:hover {
+          border-color: var(--color2);
+        }
+
+        .radio-custom {
+          accent-color: #22c55e;
+        }
+
+        .section-divider {
+          border-top: 2px solid var(--color3);
+          margin: 2rem 0;
+          position: relative;
+        }
+
+        .section-divider::before {
+          content: '';
+          position: absolute;
+          top: -1px;
+          left: 50%;
+          transform: translateX(-50%);
+          width: 60px;
+          height: 2px;
+          background: linear-gradient(to right, var(--color1), #22c55e);
+        }
+
+        .btn-primary {
+          background: linear-gradient(135deg, #22c55e, var(--color1));
+          transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 10px 25px rgba(34, 197, 94, 0.3);
+        }
+
+        .floating-label {
+          position: relative;
+        }
+
+        .floating-label input:focus + label,
+        .floating-label input:not(:placeholder-shown) + label,
+        .floating-label select:focus + label,
+        .floating-label select:not([value=""]) + label,
+        .floating-label textarea:focus + label,
+        .floating-label textarea:not(:placeholder-shown) + label {
+          transform: translateY(-1.5rem) scale(0.85);
+          color: #22c55e;
+        }
+
+        .floating-label label {
+          position: absolute;
+          left: 0.75rem;
+          top: 0.75rem;
+          transition: all 0.2s ease;
+          pointer-events: none;
+          color: #6b7280;
+        }
+
+        .password-toggle {
+          cursor: pointer;
+          transition: color 0.2s ease;
+        }
+
+        .password-toggle:hover {
+          color: #22c55e;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col bg-degrade">
+
+<!-- Header con barra de navegación mejorada -->
+<nav class="navbar">
+    <div class="navbar-container">
+        <a href="index.html" class="logo">
+            <span class="logo-icon">🏥</span>
+            Inmente
+        </a>
+
+        <button class="menu-toggle" onclick="toggleMenu()">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+        </button>
+
+        <div class="nav-menu">
+            <a href="/" class="nav-link active">
+                <span class="nav-icon">🏠</span>
+                Inicio
+            </a>
+            <a href="nosotros" class="nav-link">
+                <span class="nav-icon">👥</span>
+                Nosotros
+            </a>
+
+            <a href="contacto" class="nav-link">
+                <span class="nav-icon">📞</span>
+                Contacto
+            </a>
+            <a href="formulario" class="nav-link">
+                <span class="nav-icon">🩺</span>
+                Registrarse
+            </a>
+            <a href="login" class="nav-link login-btn">
+                <span class="nav-icon">👤</span>
+                Iniciar Sesión
+            </a>
+        </div>
+    </div>
+</nav>
+
+
+<main class="flex-grow flex items-center justify-center p-6">
+    <div class="card w-full max-w-2xl p-8 space-y-6">
+    <div class="text-center mb-8">
+        <h1 class="text-4xl font-bold text-gray-800 mb-2">Registro de Paciente</h1>
+        <p class="text-gray-600">Completa tus datos para crear tu perfil en PsicoVida</p>
+    </div>
+
+    <form th:action="@{/registrarPaciente}" th:object="${paciente}" method="POST" novalidate class="space-y-6">
+
+        <!-- Información Personal -->
+        <div class="grid md:grid-cols-2 gap-6">
+            <!-- Nombre -->
+            <div class="floating-label">
+                <input type="text" th:field="*{nombre}" id="nombre" placeholder=" " required
+                       class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg bg-gray-50 focus:bg-white" />
+                <label for="nombre">Nombre completo</label>
+                <div th:if="${#fields.hasErrors('nombre')}" class="text-red-500 text-sm mt-1">
+                    <span th:errors="*{nombre}"></span>
+                </div>
+            </div>
+
+            <!-- Edad -->
+            <div class="floating-label">
+                <input type="number" th:field="*{edad}" id="edad" placeholder=" " min="0" required
+                       class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg bg-gray-50 focus:bg-white" />
+                <label for="edad">Edad</label>
+                <div th:if="${#fields.hasErrors('edad')}" class="text-red-500 text-sm mt-1">
+                    <span th:errors="*{edad}"></span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Género -->
+        <div>
+            <label class="block mb-3 text-sm font-semibold text-gray-700">Género</label>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+                <label class="flex items-center p-3 border border-gray-200 rounded-lg hover:bg-gray-50 cursor-pointer transition-colors">
+                    <input type="radio" th:field="*{genero}" value="Femenino" required class="radio-custom mr-3" />
+                    <span class="text-gray-900">Femenino</span>
+                </label>
+                <label class="flex items-center p-3 border border-gray-200 rounded-lg hover:bg-gray-50 cursor-pointer transition-colors">
+                    <input type="radio" th:field="*{genero}" value="Masculino" class="radio-custom mr-3" />
+                    <span class="text-gray-900">Masculino</span>
+                </label>
+                <label class="flex items-center p-3 border border-gray-200 rounded-lg hover:bg-gray-50 cursor-pointer transition-colors">
+                    <input type="radio" th:field="*{genero}" value="No binario" class="radio-custom mr-3" />
+                    <span class="text-gray-900">No binario</span>
+                </label>
+                <label class="flex items-center p-3 border border-gray-200 rounded-lg hover:bg-gray-50 cursor-pointer transition-colors">
+                    <input type="radio" th:field="*{genero}" value="Prefiero no decirlo" class="radio-custom mr-3" />
+                    <span class="text-gray-900">Prefiero no decir</span>
+                </label>
+            </div>
+            <div th:if="${#fields.hasErrors('genero')}" class="text-red-500 text-sm mt-2">
+                <span th:errors="*{genero}"></span>
+            </div>
+        </div>
+
+        <!-- Contacto -->
+        <div class="section-divider"></div>
+
+        <div class="grid md:grid-cols-2 gap-6">
+            <!-- Teléfono -->
+            <div class="floating-label">
+                <input type="tel" th:field="*{telefono}" id="telefono" placeholder=" " pattern="[0-9]{7,15}" required
+                       class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg bg-gray-50 focus:bg-white" />
+                <label for="telefono">Teléfono</label>
+                <div th:if="${#fields.hasErrors('telefono')}" class="text-red-500 text-sm mt-1">
+                    <span th:errors="*{telefono}"></span>
+                </div>
+            </div>
+
+            <!-- Email -->
+            <div class="floating-label">
+                <input type="email" th:field="*{email}" id="email" placeholder=" " required
+                       class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg bg-gray-50 focus:bg-white" />
+                <label for="email">Correo electrónico</label>
+                <div th:if="${#fields.hasErrors('email')}" class="text-red-500 text-sm mt-1">
+                    <span th:errors="*{email}"></span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contraseña -->
+        <div class="floating-label">
+            <div class="relative">
+                <input type="password" th:field="*{password}" id="password" placeholder=" " required minlength="6"
+                       class="form-input w-full px-4 py-3 pr-12 border border-gray-300 rounded-lg bg-gray-50 focus:bg-white" />
+                <label for="password">Contraseña</label>
+                <button type="button" onclick="togglePassword()" class="password-toggle absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500">
+                    <svg id="eye-icon" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                        <path d="M10 3C5 3 1.73 7.11 1 10c.73 2.89 4 7 9 7s8.27-4.11 9-7c-.73-2.89-4-7-9-7zM10 15c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8a3 3 0 100 6 3 3 0 000-6z"/>
+                    </svg>
+                </button>
+            </div>
+            <div th:if="${#fields.hasErrors('password')}" class="text-red-500 text-sm mt-1">
+                <span th:errors="*{password}"></span>
+            </div>
+        </div>
+
+        <!-- Información Personal Adicional -->
+        <div class="section-divider"></div>
+
+        <div class="grid md:grid-cols-2 gap-6">
+            <!-- Estado Civil -->
+            <div class="floating-label">
+                <select th:field="*{estadoCivil}" id="estado_civil" required
+                        class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg bg-gray-50 focus:bg-white">
+                    <option value="" disabled selected></option>
+                    <option value="Soltero(a)">Soltero(a)</option>
+                    <option value="Casado(a)">Casado(a)</option>
+                    <option value="Divorciado(a)">Divorciado(a)</option>
+                    <option value="Viudo(a)">Viudo(a)</option>
+                </select>
+                <label for="estado_civil">Estado civil</label>
+                <div th:if="${#fields.hasErrors('estadoCivil')}" class="text-red-500 text-sm mt-1">
+                    <span th:errors="*{estadoCivil}"></span>
+                </div>
+            </div>
+
+            <!-- Ocupación -->
+            <div class="floating-label">
+                <input type="text" th:field="*{ocupacion}" id="ocupacion" placeholder=" "
+                       class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg bg-gray-50 focus:bg-white" />
+                <label for="ocupacion">Ocupación</label>
+            </div>
+        </div>
+
+        <!-- Atención Previa -->
+        <div class="floating-label">
+            <select th:field="*{atencionPrevia}" id="atencion_previa" required
+                    class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg bg-gray-50 focus:bg-white">
+                <option value="" disabled selected></option>
+                <option value="Sí">Sí</option>
+                <option value="No">No</option>
+            </select>
+            <label for="atencion_previa">¿Ha recibido atención psicológica anteriormente?</label>
+            <div th:if="${#fields.hasErrors('atencionPrevia')}" class="text-red-500 text-sm mt-1">
+                <span th:errors="*{atencionPrevia}"></span>
+            </div>
+        </div>
+
+        <!-- Motivo de Consulta -->
+        <div class="floating-label">
+            <textarea th:field="*{motivo}" id="motivo" placeholder=" " rows="4" required
+                      class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg bg-gray-50 focus:bg-white resize-none"></textarea>
+            <label for="motivo">Motivo de consulta</label>
+            <div th:if="${#fields.hasErrors('motivo')}" class="text-red-500 text-sm mt-1">
+                <span th:errors="*{motivo}"></span>
+            </div>
+        </div>
+
+        <!-- Botón de Registro -->
+        <button type="submit"
+                class="btn-primary w-full text-white font-semibold rounded-lg text-lg px-6 py-4 text-center transition-all duration-300 mt-8">
+            Registrar Paciente
+        </button>
+    </form>
+
+    <p class="text-sm text-center text-gray-600 mt-6">
+        ¿Ya tienes una cuenta?
+        <a href="#" class="text-green-600 hover:underline font-medium">Inicia sesión aquí</a>
+    </p>
+</div>
+</main>
+    <!-- Footer -->
+    <footer class="footer-personalizado">
+
+        <ul class="footer-links">
+            <li><a href="#">Acerca de</a></li>
+            <li><a href="#">Privacidad</a></li>
+            <li><a href="#">Licencias</a></li>
+            <li><a href="#">Contacto</a></li>
+        </ul>
+        <div class="footer-social">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+        <hr />
+        <p class="footer-copy">© 2025 <a href="/">Inmente</a>. Todos los derechos reservados.</p>
+
+    </footer>
+
+
+    <script>
+    function togglePassword() {
+        const passwordInput = document.getElementById("password");
+        const eyeIcon = document.getElementById("eye-icon");
+
+        if (passwordInput.type === "password") {
+            passwordInput.type = "text";
+            eyeIcon.innerHTML = `<path d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" />`;
+        } else {
+            passwordInput.type = "password";
+            eyeIcon.innerHTML = `<path d="M10 3C5 3 1.73 7.11 1 10c.73 2.89 4 7 9 7s8.27-4.11 9-7c-.73-2.89-4-7-9-7zM10 15c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8a3 3 0 100 6 3 3 0 000-6z"/>`;
+        }
+    }
+
+    // Mejorar la experiencia de las etiquetas flotantes
+    document.addEventListener('DOMContentLoaded', function() {
+        const inputs = document.querySelectorAll('.floating-label input, .floating-label select, .floating-label textarea');
+
+        inputs.forEach(input => {
+            // Verificar si el campo ya tiene valor al cargar
+            if (input.value !== '') {
+                input.nextElementSibling.style.transform = 'translateY(-1.5rem) scale(0.85)';
+                input.nextElementSibling.style.color = '#22c55e';
+            }
+
+            input.addEventListener('change', function() {
+                if (this.value !== '') {
+                    this.nextElementSibling.style.transform = 'translateY(-1.5rem) scale(0.85)';
+                    this.nextElementSibling.style.color = '#22c55e';
+                }
+            });
+        });
+    });
+</script>
+
+</body>
+</html>

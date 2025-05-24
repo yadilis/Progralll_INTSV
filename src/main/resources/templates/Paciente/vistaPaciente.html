@@ -1,0 +1,196 @@
+<!-- src/main/resources/templates/confirmacion.html -->
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Inmente</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="stylesheet" th:href="@{/css/index.css}" />
+    <link rel="stylesheet" th:href="@{/css/footer.css}" />
+
+</head>
+
+<style>
+    :root {
+      --color1: #b6f9c3;
+      --color2: #c8fad2;
+      --color3: #dafce1;
+      --color4: #edfdf0;
+      --color5: #ffffff;
+      --primary-text: #065f46;
+      --shadow-color: rgba(182, 249, 195, 0.6);
+    }
+
+    body {
+      background: var(--color4);
+    }
+
+    .confirm-card {
+      background: var(--color5);
+      border-radius: 1rem;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      max-width: 600px;
+      margin: auto;
+    }
+
+    .confirm-card-header {
+      background: linear-gradient(135deg, var(--color1), var(--color2));
+      padding: 2rem;
+      text-align: center;
+    }
+
+    .confirm-card-header h1 {
+      color: var(--primary-text);
+      font-size: 1.875rem;
+      margin: 0;
+    }
+
+    .confirm-card-header p {
+      color: var(--primary-text);
+      opacity: 0.9;
+      margin: 0.5rem 0 0;
+    }
+
+    .confirm-card-body {
+      padding: 2rem;
+    }
+
+    .confirm-card-body p.intro {
+      text-align: center;
+      color: var(--primary-text);
+      margin-bottom: 1rem;
+    }
+
+    .confirm-list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem 2rem;
+    }
+
+    .confirm-list p {
+      margin: 0;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--color3);
+      color: var(--primary-text);
+    }
+
+    .confirm-list p:last-child {
+      border-bottom: none;
+    }
+
+    .confirm-card-footer {
+      padding: 1.5rem;
+      text-align: center;
+      background: var(--color4);
+    }
+
+    .confirm-card-footer a {
+      display: inline-block;
+      background: var(--color1);
+      color: var(--primary-text);
+      padding: 0.75rem 1.5rem;
+      border-radius: 0.5rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .confirm-card-footer a:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px var(--shadow-color);
+    }
+</style>
+
+<body class="min-h-screen flex flex-col bg-degrade">
+
+<!-- Header con barra de navegación mejorada -->
+<nav class="navbar">
+    <div class="navbar-container">
+        <a href="index.html" class="logo">
+            <span class="logo-icon">🏥</span>
+            Inmente
+        </a>
+
+        <button class="menu-toggle" onclick="toggleMenu()">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+        </button>
+
+        <div class="nav-menu">
+            <a href="/" class="nav-link active">
+                <span class="nav-icon">🏠</span>
+                Inicio
+            </a>
+            <a href="nosotros" class="nav-link">
+                <span class="nav-icon">👥</span>
+                Nosotros
+            </a>
+
+            <a href="contacto" class="nav-link">
+                <span class="nav-icon">📞</span>
+                Contacto
+            </a>
+            <a href="formulario" class="nav-link">
+                <span class="nav-icon">🩺</span>
+                Registrarse
+            </a>
+            <a href="login" class="nav-link login-btn">
+                <span class="nav-icon">👤</span>
+                Iniciar Sesión
+            </a>
+        </div>
+    </div>
+</nav>
+<main class="flex-grow flex items-center justify-center p-6">
+
+<div class="confirm-card">
+    <!-- Header -->
+    <div class="confirm-card-header">
+        <h1>¡Registro exitoso!</h1>
+        <p>Gracias por confiar en Inmente</p>
+    </div>
+
+    <!-- Body -->
+    <div class="confirm-card-body">
+        <p class="intro">Aquí tienes un resumen de tus datos:</p>
+        <div class="confirm-list">
+            <p><strong>Nombre:</strong> <span th:text="${paciente.nombre}"></span></p>
+            <p><strong>Edad:</strong> <span th:text="${paciente.edad}"></span></p>
+            <p><strong>Género:</strong> <span th:text="${paciente.genero}"></span></p>
+            <p><strong>Teléfono:</strong> <span th:text="${paciente.telefono}"></span></p>
+            <p><strong>Email:</strong> <span th:text="${paciente.email}"></span></p>
+            <p><strong>Estado Civil:</strong> <span th:text="${paciente.estadoCivil}"></span></p>
+            <p><strong>Ocupación:</strong> <span th:text="${paciente.ocupacion}"></span></p>
+            <p><strong>Atención Previa:</strong> <span th:text="${paciente.atencionPrevia}"></span></p>
+            <p class="col-span-full"><strong>Motivo de consulta:</strong> <span th:text="${paciente.motivo}"></span></p>
+        </div>
+    </div>
+</div>
+</main>
+
+    <!-- Footer -->
+    <footer class="footer-personalizado">
+
+        <ul class="footer-links">
+            <li><a href="#">Acerca de</a></li>
+            <li><a href="#">Privacidad</a></li>
+            <li><a href="#">Licencias</a></li>
+            <li><a href="#">Contacto</a></li>
+        </ul>
+        <div class="footer-social">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+        <hr />
+        <p class="footer-copy">© 2025 <a href="/">Inmente</a>. Todos los derechos reservados.</p>
+
+    </footer>
+
+
+
+</body>
+</html>

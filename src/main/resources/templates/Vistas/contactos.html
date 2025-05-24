@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Inmente</title>
+    <link rel="stylesheet" th:href="@{/css/index.css}" />
+    <link rel="stylesheet" th:href="@{/css/footer.css}" />
+
+    <style>
+        :root {
+          --color1: #b6f9c3;
+          --color2: #c8fad2;
+          --color3: #dafce1;
+          --color4: #edfdf0;
+          --color5: #ffffff;
+        }
+
+        * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+        }
+
+        body {
+          font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+          line-height: 1.6;
+          color: #2c5f3f;
+          background: linear-gradient(135deg, var(--color4) 0%, var(--color5) 100%);
+        }
+
+        .container {
+          max-width: 1200px;
+          margin: 0 auto;
+          padding: 0 20px;
+        }
+
+
+        /* Contact Section */
+        .contact {
+          padding: 5rem 0;
+          background: var(--color5);
+        }
+
+        .section-title {
+  font-size: 2.4rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 3rem;
+  color: var(--text-medium);
+  text-shadow: 1px 1px 3px var(--shadow);
+}
+
+        .contact-content {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 3rem;
+        }
+
+        .contact-info {
+          background: linear-gradient(135deg, var(--color4) 0%, var(--color3) 100%);
+          padding: 2rem;
+          border-radius: 20px;
+          box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+
+        .contact-item {
+          display: flex;
+          align-items: center;
+          margin-bottom: 1.5rem;
+          padding: 1rem;
+          background: var(--color5);
+          border-radius: 15px;
+          transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+          transform: translateX(10px);
+          box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+
+        .contact-icon {
+          font-size: 1.5rem;
+          margin-right: 1rem;
+          color: #2c5f3f;
+        }
+
+        .appointment-form {
+          background: linear-gradient(135deg, var(--color2) 0%, var(--color3) 100%);
+          padding: 2rem;
+          border-radius: 20px;
+          box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+
+        .form-group {
+          margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+          display: block;
+          margin-bottom: 0.5rem;
+          color: #2c5f3f;
+          font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+          width: 100%;
+          padding: 1rem;
+          border: 2px solid var(--color4);
+          border-radius: 15px;
+          font-size: 1rem;
+          transition: all 0.3s ease;
+          background: var(--color5);
+        }
+
+.appointment-form h3 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 1.8rem;
+  color: var(--text-medium);
+  text-align: center;
+}
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+          outline: none;
+          border-color: var(--color1);
+          box-shadow: 0 0 0 3px rgba(182, 249, 195, 0.3);
+        }
+
+        .btn {
+          display: inline-block;
+          padding: 1rem 2rem;
+          text-decoration: none;
+          border-radius: 50px;
+          font-weight: bold;
+          transition: all 0.3s ease;
+          background: linear-gradient(135deg, var(--color1) 0%, #a0f0b0 100%);
+          color: #2c5f3f;
+          box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+          border: none;
+          cursor: pointer;
+        }
+
+        .btn:hover {
+          transform: translateY(-3px);
+          box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+          background: linear-gradient(135deg, #a0f0b0 0%, var(--color1) 100%);
+        }
+    </style>
+</head>
+<body>
+
+<!-- Header con barra de navegación mejorada -->
+<nav class="navbar">
+    <div class="navbar-container">
+        <a href="index.html" class="logo">
+            <span class="logo-icon">🏥</span>
+            Inmente
+        </a>
+
+        <button class="menu-toggle" onclick="toggleMenu()">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+        </button>
+
+        <div class="nav-menu">
+            <a href="/" class="nav-link active">
+                <span class="nav-icon">🏠</span>
+                Inicio
+            </a>
+            <a href="nosotros" class="nav-link">
+                <span class="nav-icon">👥</span>
+                Nosotros
+            </a>
+
+            <a href="contacto" class="nav-link">
+                <span class="nav-icon">📞</span>
+                Contacto
+            </a>
+            <a href="formulario" class="nav-link">
+                <span class="nav-icon">🩺</span>
+                Registrarse
+            </a>
+            <a href="login" class="nav-link login-btn">
+                <span class="nav-icon">👤</span>
+                Iniciar Sesión
+            </a>
+        </div>
+    </div>
+</nav>
+<!-- Contact Section -->
+<section id="contacto" class="contact">
+    <div class="container">
+        <h2 class="section-title">Contáctanos</h2>
+        <div class="contact-content">
+            <div class="contact-info">
+                <div class="contact-item">
+                    <span class="contact-icon">📍</span>
+                    <div>
+                        <h3>Dirección</h3>
+                        <p>Av. Principal 123, Centro de Psicología<br>Ciudad, País</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-icon">📞</span>
+                    <div>
+                        <h3>Teléfono</h3>
+                        <p>+1 234 567 8900</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-icon">✉️</span>
+                    <div>
+                        <h3>Email</h3>
+                        <p>info@consultorioInmente.com</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-icon">🕐</span>
+                    <div>
+                        <h3>Horarios</h3>
+                        <p>Lun - Vie: 8:00 AM - 6:00 PM<br>Sáb: 9:00 AM - 2:00 PM</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="appointment-form">
+                <h3>Reservar Cita</h3>
+                <form>
+                    <div class="form-group">
+                        <label for="nombre">Nombre Completo</label>
+                        <input type="text" id="nombre" name="nombre" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="telefono">Teléfono</label>
+                        <input type="tel" id="telefono" name="telefono" required>
+                    </div>
+                    <div class="form-group">
+                    <label for="especialidad">Especialidad</label>
+                    <select id="especialidad" name="especialidad" required>
+                        <option value="">Selecciona una especialidad</option>
+                        <option value="psicologia-general">Psicología General</option>
+                        <option value="psicologia-clinica">Psicología Clínica</option>
+                        <option value="psicologia-infantil">Psicología Infantil</option>
+                        <option value="psicologia-educativa">Psicología Educativa</option>
+                        <option value="psicologia-organizacional">Psicología Organizacional</option>
+                    </select>
+                </div>
+
+                    <div class="form-group">
+                        <label for="fecha">Fecha Preferida</label>
+                        <input type="date" id="fecha" name="fecha" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="mensaje">Mensaje (Opcional)</label>
+                        <textarea id="mensaje" name="mensaje" rows="4" placeholder="Describe brevemente el motivo de tu consulta..."></textarea>
+                    </div>
+                    <button type="submit" class="btn">Enviar Solicitud</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Footer -->
+<footer class="footer-personalizado">
+
+    <ul class="footer-links">
+        <li><a href="#">Acerca de</a></li>
+        <li><a href="#">Privacidad</a></li>
+        <li><a href="#">Licencias</a></li>
+        <li><a href="#">Contacto</a></li>
+    </ul>
+    <div class="footer-social">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+    </div>
+    <hr />
+    <p class="footer-copy">© 2025 <a href="/">Inmente</a>. Todos los derechos reservados.</p>
+
+</footer>
+
+</body>
+</html>

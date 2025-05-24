@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css');
+
+.footer-personalizado {
+  width: 100%;
+  background: linear-gradient(to right, #b6f9c3, #c8fad2, #dafce1, #edfdf0);
+  color: #1e293b;
+  padding: 3rem 1rem;
+  font-family: 'Inter', sans-serif;
+  box-shadow: 0 -10px 25px rgba(0, 0, 0, 0.05);
+}
+
+.footer-contenido {
+  max-width: 1200px;
+  margin: auto;
+  text-align: center;
+}
+
+.footer-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+.footer-logo .logo {
+  height: 40px;
+}
+.footer-logo h2 {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: #1e293b;
+}
+
+.footer-links {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-bottom: 1.5rem;
+  padding: 0;
+}
+.footer-links a {
+  color: #1e293b;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+.footer-links a:hover {
+  color: #38bdf8;
+  transform: scale(1.05);
+}
+
+.footer-social {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+.footer-social a {
+  color: #1e293b;
+  font-size: 1.2rem;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+.footer-social a:hover {
+  color: #38bdf8;
+  transform: scale(1.2);
+}
+
+hr {
+  border: 0;
+  height: 1px;
+  background-color: #cbd5e1;
+  margin: 2rem auto;
+  width: 80%;
+}
+
+.footer-copy {
+  font-size: 0.875rem;
+  color: #1e293b;
+}
+.footer-copy a {
+  color: #1e293b;
+  text-decoration: underline;
+}
+.footer-copy a:hover {
+  color: #38bdf8;
+}

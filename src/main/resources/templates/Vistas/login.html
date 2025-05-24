@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="es"  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" th:href="@{/css/index.css}" />
+    <link rel="stylesheet" th:href="@{/css/footer.css}" />
+    <title>Iniciar Sesión</title>
+
+    <!-- Tailwind + Flowbite -->
+    <script src="https://unpkg.com/flowbite@1.6.5/dist/flowbite.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.css" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        /* Colores base */
+        :root {
+          --color1: #b6f9c3;
+          --color2: #c8fad2;
+          --color3: #dafce1;
+          --color4: #edfdf0;
+          --color5: #ffffff;
+          --primary-text: #065f46; /* verde oscuro para texto */
+          --shadow-color: rgba(182, 249, 195, 0.6);
+        }
+
+        /* Fondo y tarjetas */
+        .bg-color1 {
+          background: var(--color1);
+        }
+        .bg-color2 {
+          background: var(--color2);
+        }
+        .bg-color3 {
+          background: var(--color3);
+        }
+        .bg-color4 {
+          background: var(--color4);
+        }
+        .bg-color5 {
+          background: var(--color5);
+        }
+
+        /* Tarjeta principal */
+        .card {
+          background: var(--color5);
+          border-radius: 16px;
+          box-shadow: 0 8px 24px var(--shadow-color);
+          padding: 2rem;
+          max-width: 420px;
+          margin: 2rem auto;
+          font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        /* Título principal */
+        .card .text-center h1 {
+          color: var(--primary-text);
+          font-weight: 900;
+          font-size: 2.25rem;
+          margin-bottom: 0.25rem;
+          letter-spacing: 0.05em;
+          text-shadow: 0 1px 3px rgba(6, 95, 70, 0.4);
+        }
+
+        /* Subtítulo */
+        .card .text-center p {
+          color: var(--primary-text);
+          font-weight: 500;
+          opacity: 0.8;
+          font-size: 0.9rem;
+          margin-bottom: 2rem;
+        }
+
+        /* Formularios */
+        form .form-input {
+          width: 100%;
+          padding: 12px 16px;
+          border-radius: 10px;
+          border: 2px solid var(--color2);
+          background: var(--color4);
+          font-size: 1rem;
+          color: var(--primary-text);
+          transition: border-color 0.3s ease;
+          box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        form .form-input:focus {
+          outline: none;
+          border-color: var(--color1);
+          box-shadow: 0 0 8px var(--color1);
+          background: var(--color5);
+        }
+
+        /* Placeholder negro para email */
+        input[type="email"]::placeholder {
+          color: black;
+          opacity: 1;
+        }
+
+        /* Botón de mostrar/ocultar contraseña */
+        form button {
+          background: transparent;
+          border: none;
+          cursor: pointer;
+          color: var(--color2);
+          transition: color 0.3s ease;
+        }
+
+        form button:hover {
+          color: var(--primary-text);
+        }
+
+        /* Labels */
+        form label {
+          display: block;
+          margin-bottom: 0.5rem;
+          font-weight: 600;
+          color: var(--primary-text);
+        }
+
+        /* Checkbox */
+        input[type="checkbox"] {
+          width: 18px;
+          height: 18px;
+          border-radius: 6px;
+          border: 2px solid var(--color2);
+          background: var(--color4);
+          cursor: pointer;
+          transition: background-color 0.3s ease, border-color 0.3s ease;
+        }
+
+        input[type="checkbox"]:checked {
+          background: var(--color1);
+          border-color: var(--color1);
+        }
+
+        /* Texto junto al checkbox */
+        form label[for="remember"] {
+          font-weight: 500;
+          color: var(--primary-text);
+          margin-left: 0.5rem;
+          user-select: none;
+        }
+
+        /* Links */
+        a {
+          color: var(--color1);
+          font-weight: 600;
+          text-decoration: none;
+          transition: color 0.3s ease;
+        }
+        a:hover {
+          color: var(--primary-text);
+          text-decoration: underline;
+        }
+
+        /* Botón principal */
+        button[type="submit"] {
+          width: 100%;
+          background: var(--color1);
+          color: var(--primary-text);
+          font-weight: 700;
+          font-size: 1.1rem;
+          padding: 12px 0;
+          border-radius: 14px;
+          box-shadow: 0 4px 12px var(--shadow-color);
+          border: none;
+          cursor: pointer;
+          transition: background 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        button[type="submit"]:hover {
+          background: var(--color2);
+          box-shadow: 0 6px 16px var(--shadow-color);
+          color: var(--primary-text);
+        }
+
+        /* Contenedor de opciones */
+        .flex {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-top: 0.5rem;
+          margin-bottom: 1.5rem;
+        }
+
+        /* Textos pequeños */
+        .text-sm {
+          font-size: 0.9rem;
+          color: var(--primary-text);
+          opacity: 0.75;
+          text-align: center;
+          margin-top: 1rem;
+        }
+
+        /* Espaciado */
+        .space-y-4 > * + *,
+        .space-y-6 > * + * {
+          margin-top: 1.5rem;
+        }
+        /* Contenedor principal */
+.container {
+  position: relative;
+  width: 100%;
+  height: 100vh; /* Altura completa ventana */
+  overflow: hidden;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Video de fondo */
+.background-video {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.5);
+  z-index: 1;
+}
+
+/* Contenedor formulario */
+.form-overlay {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  padding: 1rem;
+}
+
+/* Tarjeta formulario */
+.card {
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(182, 249, 195, 0.6);
+  padding: 2rem;
+  max-width: 420px;
+  width: 100%;
+}
+
+/* Placeholder en negro */
+input::placeholder {
+  color: black !important;
+}
+
+
+    </style>
+</head>
+<body>
+
+<!-- Header con barra de navegación mejorada -->
+<nav class="navbar">
+    <div class="navbar-container">
+        <a href="index.html" class="logo">
+            <span class="logo-icon">🏥</span>
+            Inmente
+        </a>
+
+        <button class="menu-toggle" onclick="toggleMenu()">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+        </button>
+
+        <div class="nav-menu">
+            <a href="/" class="nav-link active">
+                <span class="nav-icon">🏠</span>
+                Inicio
+            </a>
+            <a href="nosotros" class="nav-link">
+                <span class="nav-icon">👥</span>
+                Nosotros
+            </a>
+
+            <a href="contacto" class="nav-link">
+                <span class="nav-icon">📞</span>
+                Contacto
+            </a>
+            <a href="formulario" class="nav-link">
+                <span class="nav-icon">🩺</span>
+               Registrarse
+            </a>
+            <a href="login" class="nav-link login-btn">
+                <span class="nav-icon">👤</span>
+                Iniciar Sesión
+            </a>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    <video autoplay muted loop class="background-video">
+        <source src="https://videos.pexels.com/video-files/8428331/8428331-uhd_2560_1440_25fps.mp4" type="video/mp4" />
+        Tu navegador no soporta videos.
+    </video>
+
+    <div class="form-overlay">
+        <div class="card w-full max-w-md p-8 space-y-6 mx-auto">
+            <div class="text-center">
+                <h1 class="text-3xl font-bold text-gray-800">Bienvenido a Inmente</h1>
+                <p class="text-sm text-gray-500">Inicia sesión para acceder a tu espacio personal</p>
+            </div>
+
+            <form class="space-y-4">
+                <div>
+                    <label for="email" class="block mb-2 text-sm font-medium text-gray-700">Correo electrónico</label>
+                    <input
+                            type="email"
+                            id="email"
+                            class="form-input w-full px-4 py-2 border border-gray-300 rounded-md placeholder-black"
+                            placeholder="ejemplo@correo.com"
+                            required
+                    />
+                </div>
+                <div>
+                    <label for="password" class="block mb-2 text-sm font-medium text-gray-700">Contraseña</label>
+                    <div class="relative">
+                        <input
+                                type="password"
+                                id="password"
+                                class="form-input w-full px-4 py-2 pr-10 border border-gray-300 rounded-md"
+                                placeholder="••••••••"
+                                required
+                        />
+                        <button
+                                type="button"
+                                onclick="togglePassword()"
+                                class="absolute right-2 top-1/2 transform -translate-y-1/2 text-gray-500 hover:text-gray-700"
+                        >
+                            <svg
+                                    id="eye-icon"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    class="h-5 w-5"
+                                    viewBox="0 0 20 20"
+                                    fill="currentColor"
+                            >
+                                <path
+                                        d="M10 3C5 3 1.73 7.11 1 10c.73 2.89 4 7 9 7s8.27-4.11 9-7c-.73-2.89-4-7-9-7zM10 15c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8a3 3 0 100 6 3 3 0 000-6z"
+                                />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center">
+                        <input
+                                id="remember"
+                                type="checkbox"
+                                class="w-4 h-4 border-gray-300 rounded bg-gray-50"
+                        />
+                        <label for="remember" class="ml-2 text-sm text-gray-600">Recuérdame</label>
+                    </div>
+                    <a href="#" class="text-sm text-blue-600 hover:underline">¿Olvidaste tu contraseña?</a>
+                </div>
+                <button
+                        type="submit"
+                        class="w-full text-white bg-green-500 hover:bg-green-600 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center transition duration-200"
+                >
+                    Iniciar Sesión
+                </button>
+            </form>
+
+            <p class="text-sm text-center text-gray-600">
+                ¿No tienes una cuenta?
+                <a href="#" class="text-blue-600 hover:underline">Regístrate aquí</a>
+            </p>
+        </div>
+    </div>
+</div>
+<!-- Footer -->
+<footer class="footer-personalizado">
+
+    <ul class="footer-links">
+        <li><a href="#">Acerca de</a></li>
+        <li><a href="#">Privacidad</a></li>
+        <li><a href="#">Licencias</a></li>
+        <li><a href="#">Contacto</a></li>
+    </ul>
+    <div class="footer-social">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+    </div>
+    <hr />
+    <p class="footer-copy">© 2025 <a href="/">Inmente</a>. Todos los derechos reservados.</p>
+
+</footer>
+
+
+<script>
+    function togglePassword() {
+      const passwordInput = document.getElementById("password");
+      const eyeIcon = document.getElementById("eye-icon");
+      if (passwordInput.type === "password") {
+        passwordInput.type = "text";
+        eyeIcon.innerHTML = `<path d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" />`;
+      } else {
+        passwordInput.type = "password";
+        eyeIcon.innerHTML = `<path d="M10 3C5 3 1.73 7.11 1 10c.73 2.89 4 7 9 7s8.27-4.11 9-7c-.73-2.89-4-7-9-7zM10 15c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8a3 3 0 100 6 3 3 0 000-6z"/>`;
+      }
+    }
+</script>
+
+
+</body>
+</html>
