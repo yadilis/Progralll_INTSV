@@ -3,8 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <title>Inmente</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Flowbite CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.7.0/flowbite.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+
+
     <link rel="stylesheet" th:href="@{/css/index.css}" />
     <link rel="stylesheet" th:href="@{/css/footer.css}" />
+
 
     <style>
         :root {
@@ -228,20 +239,22 @@
                 </div>
             </div>
 
-            <div class="appointment-form">
-                <h3>Reservar Cita</h3>
-                <form>
-                    <div class="form-group">
-                        <label for="nombre">Nombre Completo</label>
-                        <input type="text" id="nombre" name="nombre" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="telefono">Teléfono</label>
-                        <input type="tel" id="telefono" name="telefono" required>
-                    </div>
-                    <div class="form-group">
+            <form th:action="@{/enviarCita}" th:object="${cita}" method="post">
+                <div class="form-group">
+                    <label for="nombre">Nombre Completo</label>
+                    <input type="text" th:field="*{nombre}" class="form-control" required />
+                    <div th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}" class="text-red-600 text-sm"></div>
+                </div>
+
+                <div class="form-group">
+                    <label for="telefono">Teléfono</label>
+                    <input type="tel" th:field="*{telefono}" class="form-control" required />
+                    <div th:if="${#fields.hasErrors('telefono')}" th:errors="*{telefono}" class="text-red-600 text-sm"></div>
+                </div>
+
+                <div class="form-group">
                     <label for="especialidad">Especialidad</label>
-                    <select id="especialidad" name="especialidad" required>
+                    <select th:field="*{especialidad}" class="form-control" required>
                         <option value="">Selecciona una especialidad</option>
                         <option value="psicologia-general">Psicología General</option>
                         <option value="psicologia-clinica">Psicología Clínica</option>
@@ -249,39 +262,66 @@
                         <option value="psicologia-educativa">Psicología Educativa</option>
                         <option value="psicologia-organizacional">Psicología Organizacional</option>
                     </select>
+                    <div th:if="${#fields.hasErrors('especialidad')}" th:errors="*{especialidad}" class="text-red-600 text-sm"></div>
                 </div>
 
-                    <div class="form-group">
-                        <label for="fecha">Fecha Preferida</label>
-                        <input type="date" id="fecha" name="fecha" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="mensaje">Mensaje (Opcional)</label>
-                        <textarea id="mensaje" name="mensaje" rows="4" placeholder="Describe brevemente el motivo de tu consulta..."></textarea>
-                    </div>
-                    <button type="submit" class="btn">Enviar Solicitud</button>
-                </form>
+                <div class="form-group">
+                    <label for="fecha">Fecha Preferida</label>
+                    <input type="date" th:field="*{fecha}" class="form-control" required />
+                    <div th:if="${#fields.hasErrors('fecha')}" th:errors="*{fecha}" class="text-red-600 text-sm"></div>
+                </div>
+
+                <div class="form-group">
+                    <label for="mensaje">Mensaje (Opcional)</label>
+                    <textarea th:field="*{mensaje}" rows="4" class="form-control"></textarea>
+                </div>
+
+                <button type="submit" class="btn">Enviar Solicitud</button>
+            </form>
+
+
+            <!-- Footer -->
+<footer class="footer">
+    <div class="footer-container">
+
+        <!-- Redes sociales -->
+        <div class="footer-socials">
+            <p class="footer-title">Síguenos:</p>
+            <div class="social-icons">
+                <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
             </div>
         </div>
-    </div>
-</section>
-<!-- Footer -->
-<footer class="footer-personalizado">
 
-    <ul class="footer-links">
-        <li><a href="#">Acerca de</a></li>
-        <li><a href="#">Privacidad</a></li>
-        <li><a href="#">Licencias</a></li>
-        <li><a href="#">Contacto</a></li>
-    </ul>
-    <div class="footer-social">
-        <a href="#"><i class="fab fa-facebook-f"></i></a>
-        <a href="#"><i class="fab fa-twitter"></i></a>
-        <a href="#"><i class="fab fa-instagram"></i></a>
-    </div>
-    <hr />
-    <p class="footer-copy">© 2025 <a href="/">Inmente</a>. Todos los derechos reservados.</p>
+        <!-- Título central -->
+        <div class="footer-brand">
+            <div class="footer-logo">
+                <i class="fas fa-brain"></i>
+            </div>
+            <h2>Inmente</h2>
+            <p>Tu bienestar mental es nuestra prioridad</p>
+        </div>
 
+        <!-- Contacto -->
+        <div class="footer-contact">
+            <a href="tel:+593991234567" class="contact-button">
+                <i class="fas fa-phone"></i>
+                Contactar
+            </a>
+        </div>
+
+    </div>
+
+    <!-- Línea divisoria -->
+    <hr class="footer-divider">
+
+    <!-- Copyright -->
+    <div class="footer-copy">
+        <p>© 2025 <span>Inmente</span> • Todos los derechos reservados</p>
+        <p class="footer-quote">"Estamos contigo en cada paso hacia tu bienestar"</p>
+    </div>
 </footer>
 
 </body>
