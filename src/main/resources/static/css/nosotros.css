@@ -10,6 +10,18 @@
   --shadow-strong: rgba(98, 168, 96, 0.35);
   --shadow-soft: rgba(182, 249, 195, 0.25);
 }
+.floating-animation {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+}
 
 /* Fondos para tarjetas y secciones */
 .bg-color1 {

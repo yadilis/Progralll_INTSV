@@ -46,7 +46,7 @@
         Nosotros
       </a>
 
-      <a href="contacto" class="nav-link">
+      <a href="cita" class="nav-link">
         <span class="nav-icon">📞</span>
         Contacto
       </a>
@@ -62,20 +62,21 @@
   </div>
 </nav>
 <!-- Hero Section -->
-<section class="relative py-20 overflow-hidden bg-cover bg-center bg-no-repeat" style="background-image: url('https://images.unsplash.com/photo-1544027993-37dbfe43562a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');">
-  <div class="absolute inset-0 bg-gradient-to-r from-blue-300/60 to-teal-200/60"></div>
-  <div class="absolute top-10 left-10 w-32 h-32 bg-white bg-opacity-10 rounded-full floating-animation"></div>
-  <div class="absolute bottom-10 right-10 w-24 h-24 bg-white bg-opacity-10 rounded-full floating-animation" style="animation-delay: -3s;"></div>
+<section class="relative min-h-[80vh] py-28 md:py-32 overflow-hidden bg-cover bg-center bg-no-repeat"
+         style="background-image: url('https://images.unsplash.com/photo-1544027993-37dbfe43562a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80');">
 
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+  <div class="absolute inset-0 bg-gradient-to-r from-emerald-400/60 to-emerald-200/60 backdrop-blur-sm"></div>
+  <div class="absolute top-12 left-12 w-36 h-36 bg-white bg-opacity-10 rounded-full floating-animation"></div>
+  <div class="absolute bottom-12 right-12 w-28 h-28 bg-white bg-opacity-10 rounded-full floating-animation" style="animation-delay: -2s;"></div>
+  <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="text-center">
-      <h1 class="text-4xl md:text-6xl font-bold mb-6 text-white">
+      <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold text-white mb-6 leading-tight drop-shadow-lg">
         Conoce Nuestro
-        <span class="block text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 to-pink-300">
-                    Compromiso Contigo
-                </span>
+        <span class="block bg-clip-text text-transparent bg-gradient-to-r from-yellow-300 via-pink-300 to-rose-400">
+          Compromiso Contigo
+        </span>
       </h1>
-      <p class="text-xl md:text-2xl text-white max-w-3xl mx-auto leading-relaxed">
+      <p class="text-lg sm:text-xl md:text-2xl text-white/90 max-w-3xl mx-auto leading-relaxed drop-shadow-sm">
         Más de 15 años dedicados a tu bienestar mental y emocional,
         con un equipo de profesionales comprometidos con tu crecimiento personal.
       </p>
@@ -140,57 +141,60 @@
     </div>
   </div>
 </section>
-
 <!-- Nuestra Historia -->
-<section class="py-20 bg-gray-50">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="grid lg:grid-cols-2 gap-12 items-center">
+<section class="py-24 bg-gradient-to-b from-white via-[#f3fef6] to-[#e1faeb]">
+  <div class="max-w-7xl mx-auto px-6 lg:px-12">
+    <div class="grid lg:grid-cols-2 gap-16 items-center">
+
+      <!-- Texto -->
       <div>
-        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+        <h2 class="text-4xl lg:text-5xl font-extrabold text-primary-text mb-8 tracking-tight">
           Nuestra Historia
         </h2>
-        <div class="space-y-6 text-gray-700 leading-relaxed">
-          <p class="text-gray-700 text-justify">
-            Fundado en 2008 por la Dra. María González, nuestro centro nació
-            con la visión de crear un espacio seguro y acogedor donde las personas
-            pudieran encontrar el apoyo profesional que necesitaban.
+
+        <div class="space-y-6 text-lg text-primary-text leading-relaxed">
+          <p class="text-justify">
+            Fundado en 2008 por la Dra. María González, nuestro centro nació con la visión
+            de crear un espacio seguro y acogedor donde las personas pudieran encontrar el apoyo profesional que necesitaban.
           </p>
-          <p>
-            Durante más de 15 años, hemos crecido de ser una consulta individual
-            a convertirse en un centro integral con un equipo multidisciplinario
-            de psicólogos, psiquiatras y terapeutas especializados.
+          <p class="text-justify">
+            Durante más de 15 años, hemos crecido de una consulta individual a convertirnos en un centro integral con un equipo
+            multidisciplinario de psicólogos, psiquiatras y terapeutas especializados.
           </p>
-          <p>
-            Hemos acompañado a más de 3,000 personas en su proceso de crecimiento
-            personal, adaptándonos constantemente a las nuevas necesidades sociales
-            y avances en el campo de la psicología.
+          <p class="text-justify">
+            Hemos acompañado a más de 3,000 personas en su proceso de crecimiento personal, adaptándonos constantemente a las nuevas
+            necesidades sociales y avances en el campo de la psicología.
           </p>
         </div>
 
-        <div class="mt-8 grid grid-cols-3 gap-4">
-          <div class="text-center">
-            <div class="text-3xl font-bold text-primary-text">15+</div>
+        <!-- Métricas -->
+        <div class="mt-10 grid grid-cols-3 gap-6 text-center">
+          <div class="bg-white rounded-xl shadow-md py-6 hover:scale-105 transition duration-300">
+            <div class="text-4xl font-bold text-green-600">15+</div>
             <div class="text-sm text-gray-600">Años de Experiencia</div>
           </div>
-          <div class="text-center">
-            <div class="text-3xl font-bold text-secondary-text">3000+</div>
+          <div class="bg-white rounded-xl shadow-md py-6 hover:scale-105 transition duration-300">
+            <div class="text-4xl font-bold text-emerald-500">3000+</div>
             <div class="text-sm text-gray-600">Pacientes Atendidos</div>
           </div>
-          <div class="text-center">
-            <div class="text-3xl font-bold text-accent-text">20+</div>
+          <div class="bg-white rounded-xl shadow-md py-6 hover:scale-105 transition duration-300">
+            <div class="text-4xl font-bold text-teal-500">20+</div>
             <div class="text-sm text-gray-600">Especialistas</div>
           </div>
         </div>
       </div>
 
-      <div class="overflow-hidden rounded-2xl shadow-lg">
+      <!-- Imagen -->
+      <div class="overflow-hidden rounded-3xl shadow-xl group transition duration-500">
         <img src="https://images.pexels.com/photos/9162030/pexels-photo-9162030.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
              alt="Nuestra Historia"
-             class="w-full h-full object-cover" />
+             class="w-full h-full object-cover transform group-hover:scale-105 transition duration-500" />
       </div>
+
     </div>
   </div>
 </section>
+
 
 <!-- Directores -->
 <section class="py-20 bg-white">
@@ -314,24 +318,47 @@
   </div>
 </section>
 <!-- Footer -->
-<footer class="footer-personalizado">
+<footer class="footer">
+  <div class="footer-container">
 
-  <ul class="footer-links">
-    <li><a href="#">Acerca de</a></li>
-    <li><a href="#">Privacidad</a></li>
-    <li><a href="#">Licencias</a></li>
-    <li><a href="#">Contacto</a></li>
-  </ul>
-  <div class="footer-social">
-    <a href="#"><i class="fab fa-facebook-f"></i></a>
-    <a href="#"><i class="fab fa-twitter"></i></a>
-    <a href="#"><i class="fab fa-instagram"></i></a>
+    <!-- Redes sociales -->
+    <div class="footer-socials">
+      <p class="footer-title">Síguenos:</p>
+      <div class="social-icons">
+        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+      </div>
+    </div>
+
+    <!-- Título central -->
+    <div class="footer-brand">
+      <div class="footer-logo">
+        <i class="fas fa-brain"></i>
+      </div>
+      <h2>Inmente</h2>
+      <p>Tu bienestar mental es nuestra prioridad</p>
+    </div>
+
+    <!-- Contacto -->
+    <div class="footer-contact">
+      <a href="tel:+593991234567" class="contact-button">
+        <i class="fas fa-phone"></i>
+        Contactar
+      </a>
+    </div>
+
   </div>
-  <hr />
-  <p class="footer-copy">© 2025 <a href="/">Inmente</a>. Todos los derechos reservados.</p>
 
+  <!-- Línea divisoria -->
+  <hr class="footer-divider">
+
+  <!-- Copyright -->
+  <div class="footer-copy">
+    <p>© 2025 <span>Inmente</span> • Todos los derechos reservados</p>
+    <p class="footer-quote">"Estamos contigo en cada paso hacia tu bienestar"</p>
+  </div>
 </footer>
-
-
 </body>
 </html>

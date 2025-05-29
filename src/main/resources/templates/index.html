@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://kit.fontawesome.com/YOUR_KIT_ID.js" crossorigin="anonymous"></script>
     <title>Inmente</title>
     <link rel="stylesheet" th:href="@{/css/index.css}" />
     <link rel="stylesheet" th:href="@{/css/footer.css}" />
-    <link rel="stylesheet" th:href="@{/css/footer.css}" />
+
     <style>
         :root {
             --color1: #b6f9c3;
@@ -348,6 +349,173 @@ footer {
   background: #008c7e !important;
   transform: scale(1.05);
 }
+         :root {
+    --color5: #e8f5e9; /* fondo de tarjeta */
+    --primary-text: #2e7d32; /* texto principal */
+    --shadow-soft: rgba(0, 0, 0, 0.1); /* sombra suave */
+    --hover-scale: 1.03;
+    --transition-speed: 0.3s;
+  }
+
+  .servicios-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    padding: 2rem 1rem;
+  }
+
+ .servicio-card {
+  background: #d8f3dc;
+  padding: 2rem;
+  border-radius: 20px;
+  box-shadow: 0 6px 18px var(--shadow-soft);
+  transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+  text-align: center;
+  cursor: pointer;
+}
+
+  .servicio-card:hover {
+    transform: scale(var(--hover-scale));
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+  }
+
+  .servicio-emoji {
+    font-size: 2.8rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .servicio-title {
+    color: var(--primary-text);
+    margin: 1rem 0 0.5rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+
+  .servicio-description {
+    color: #444;
+    font-size: 0.95rem;
+    line-height: 1.4;
+  }
+        :root {
+  --primary-text: #065f46;
+  --color1: #d1fae5;
+  --color3: #e0f2f1;
+  --shadow-soft: rgba(0, 0, 0, 0.1);
+}
+
+
+
+.contenedor-stats {
+  display: flex;
+  justify-content: center;
+  gap: 4rem;
+  flex-wrap: wrap;
+  text-align: center;
+}
+
+.stat-num {
+  font-size: 3.5rem;
+  font-weight: bold;
+  color: var(--primary-text);
+  display: block;
+}
+
+.stat-label {
+  color: #444;
+}
+
+.sello-confianza {
+  margin-top: 3rem;
+  text-align: center;
+  background: #fffdf7;
+  padding: 2rem;
+  border-radius: 16px;
+}
+
+.mensaje-confianza {
+  font-size: 1.2rem;
+  background: var(--color3);
+  padding: 1.5rem 2.5rem;
+  border-left: 5px solid var(--primary-text);
+  display: inline-block;
+  border-radius: 12px;
+  color: var(--primary-text);
+  box-shadow: 0 4px 12px var(--shadow-soft);
+}
+
+.beneficios {
+  margin-top: 4rem;
+  background: #f0fdf4;
+  padding: 2.5rem;
+  border-radius: 16px;
+}
+
+.lista-beneficios {
+  max-width: 700px;
+  margin: auto;
+  color: #444;
+  font-size: 1rem;
+  line-height: 1.7;
+  padding-left: 1.5rem;
+}
+
+.info-sesiones {
+  margin-top: 4rem;
+  background: #fff9ed;
+  padding: 2rem;
+  border-radius: 16px;
+  text-align: center;
+}
+        .contenedor-doble {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 4rem;
+  padding: 1rem;
+}
+
+.card {
+  flex: 1 1 400px;
+  background: #f9fdfb;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  min-height: 320px; /* Igual altura para ambas */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.titulo-seccion {
+  color: var(--primary-text);
+  font-size: 1.7rem;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.lista {
+  list-style: none;
+  padding: 0;
+  color: #444;
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.lista li {
+  margin-bottom: 0.5rem;
+}
+
+.descripcion {
+  color: #555;
+  font-size: 1rem;
+  line-height: 1.7;
+  text-align: justify;
+}
+
+
+
+
     </style>
 </head>
 <body>
@@ -376,7 +544,7 @@ footer {
                 Nosotros
             </a>
 
-            <a href="contacto" class="nav-link">
+            <a href="cita" class="nav-link">
                 <span class="nav-icon">📞</span>
                 Contacto
             </a>
@@ -427,127 +595,167 @@ footer {
             </a>
         </div>
     </div>
-</section>
 
-<!-- SECCIÓN DESTACADOS + ESTADÍSTICAS + CONFIANZA -->
-<section class="hero-enhanced">
-    <div class="container">
+</section><!-- SECCIÓN DESTACADOS + ESTADÍSTICAS + CONFIANZA -->
+<section class="hero-enhanced" style="background: var(--color4); padding: 5rem 1rem; font-family: 'Segoe UI', sans-serif;">
+    <div class="container" style="max-width: 1300px; margin: 0 auto;">
 
-        <!-- DESTACADOS -->
-        <div class="hero-features" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 2.5rem;">
-            <div class="feature-card" style="background: white; border-radius: 20px; padding: 2rem; width: 280px; text-align: center; box-shadow: 0 8px 24px rgba(0,0,0,0.08); transition: transform 0.3s;">
-                <div style="font-size: 3rem; margin-bottom: 0.5rem;">💬</div>
-                <h3 style="margin-bottom: 0.5rem; color: #00bfa6;">Terapia individual</h3>
-                <p style="color: #555;">Sesiones personalizadas para adultos y adolescentes. Enfoque empático y profesional.</p>
-            </div>
-            <div class="feature-card" style="background: white; border-radius: 20px; padding: 2rem; width: 280px; text-align: center; box-shadow: 0 8px 24px rgba(0,0,0,0.08); transition: transform 0.3s;">
-                <div style="font-size: 3rem; margin-bottom: 0.5rem;">👨‍👩‍👧</div>
-                <h3 style="margin-bottom: 0.5rem; color: #00bfa6;">Terapia familiar</h3>
-                <p style="color: #555;">Fortalece vínculos, mejora la comunicación y crea armonía en tu hogar.</p>
-            </div>
-            <div class="feature-card" style="background: white; border-radius: 20px; padding: 2rem; width: 280px; text-align: center; box-shadow: 0 8px 24px rgba(0,0,0,0.08); transition: transform 0.3s;">
-                <div style="font-size: 3rem; margin-bottom: 0.5rem;">📚</div>
-                <h3 style="margin-bottom: 0.5rem; color: #00bfa6;">Psicoeducación</h3>
-                <p style="color: #555;">Recursos, talleres y acompañamiento para una vida emocionalmente consciente.</p>
-            </div>
-        </div>
-
-        <!-- NUEVOS SERVICIOS -->
-        <div style="margin-top: 4rem; text-align: center;">
-            <h2 style="font-size: 2rem; color: #333; margin-bottom: 1rem;">Servicios Especializados</h2>
-            <p style="max-width: 800px; margin: 0 auto; color: #666;">Contamos con profesionales capacitados en diversas áreas para atender tus necesidades con el mejor enfoque clínico y humano.</p>
-            <ul style="list-style: none; padding: 0; margin-top: 2rem; display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem;">
-                <li style="background: white; border-radius: 15px; padding: 1rem 2rem; box-shadow: 0 4px 16px rgba(0,0,0,0.05); color: #444;">Terapia de pareja 💞</li>
-                <li style="background: white; border-radius: 15px; padding: 1rem 2rem; box-shadow: 0 4px 16px rgba(0,0,0,0.05); color: #444;">Evaluaciones clínicas 🧠</li>
-                <li style="background: white; border-radius: 15px; padding: 1rem 2rem; box-shadow: 0 4px 16px rgba(0,0,0,0.05); color: #444;">Apoyo en crisis 🆘</li>
-            </ul>
-        </div>
-
-        <!-- ESTADÍSTICAS -->
-        <div class="hero-stats" style="margin-top: 5rem; display: flex; justify-content: center; gap: 4rem; flex-wrap: wrap;">
-            <div class="stat-item" style="text-align: center;">
-                <span style="font-size: 3rem; font-weight: bold; color: #00bfa6;">+500</span><br />
-                <span style="color: #444;">Pacientes atendidos</span>
-            </div>
-            <div class="stat-item" style="text-align: center;">
-                <span style="font-size: 3rem; font-weight: bold; color: #00bfa6;">10</span><br />
-                <span style="color: #444;">Años de experiencia</span>
-            </div>
-            <div class="stat-item" style="text-align: center;">
-                <span style="font-size: 3rem; font-weight: bold; color: #00bfa6;">98%</span><br />
-                <span style="color: #444;">Satisfacción de clientes</span>
-            </div>
-        </div>
-
-        <!-- CONFIANZA -->
-        <div class="trust-indicators" style="margin-top: 3rem; text-align: center;">
-            <p style="font-size: 1.2rem; background: #e6f8f4; padding: 1.2rem 2rem; border-left: 5px solid #00bfa6; display: inline-block; border-radius: 10px; color: #2e7d6d;">
-                🏥 Centro autorizado por el Ministerio de Salud. Atención profesional, ética y humana garantizada.
+        <!-- TÍTULO CENTRAL -->
+        <div style="text-align: center; margin-bottom: 3rem;">
+            <h2 style="font-size: 2.8rem; color: var(--primary-text); font-weight: bold; margin-bottom: 0.5rem;">
+                Tu bienestar emocional es nuestra prioridad
+            </h2>
+            <p style="color: #444; max-width: 800px; margin: 0 auto; font-size: 1.1rem;">
+                Acompañamos tu proceso con terapias efectivas, profesionales certificados y un enfoque humano, cálido y científico.
             </p>
         </div>
 
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 2rem; margin-top: 3rem;">
+
+
+            <div class="servicios-container">
+                <div class="servicio-card">
+                    <div class="servicio-emoji">💞</div>
+                    <h3 class="servicio-title">Terapia de pareja</h3>
+                    <p class="servicio-description">Mejora la comunicación, resuelve conflictos y fortalece el vínculo emocional en tu relación.</p>
+                </div>
+
+                <div class="servicio-card">
+                    <div class="servicio-emoji">🧸</div>
+                    <h3 class="servicio-title">Psicoterapia infantil</h3>
+                    <p class="servicio-description">Acompañamos a niños y niñas en su desarrollo emocional y conductual con enfoque lúdico y terapéutico.</p>
+                </div>
+
+                <div class="servicio-card">
+                    <div class="servicio-emoji">🧾</div>
+                    <h3 class="servicio-title">Evaluación psicológica</h3>
+                    <p class="servicio-description">Diagnósticos confiables y detallados para guiar procesos terapéuticos y tomar decisiones informadas.</p>
+                </div>
+
+                <div class="servicio-card">
+                    <div class="servicio-emoji">🆘</div>
+                    <h3 class="servicio-title">Atención a crisis</h3>
+                    <p class="servicio-description">Intervenciones inmediatas ante situaciones de urgencia emocional o psicológica.</p>
+                </div>
+
+                <div class="servicio-card">
+                    <div class="servicio-emoji">🧘‍♀️</div>
+                    <h3 class="servicio-title">Mindfulness y relajación</h3>
+                    <p class="servicio-description">Técnicas para reducir el estrés, mejorar la concentración y promover el bienestar mental.</p>
+                </div>
+
+                <div class="servicio-card">
+                    <div class="servicio-emoji">🎯</div>
+                    <h3 class="servicio-title">Orientación vocacional</h3>
+                    <p class="servicio-description">Descubre tus habilidades, intereses y fortalezas para tomar decisiones académicas y profesionales.</p>
+                </div>
+
+                <div class="servicio-card">
+                    <div class="servicio-emoji">🧠</div>
+                    <h3 class="servicio-title">Terapia para ansiedad</h3>
+                    <p class="servicio-description">Aprende a gestionar el estrés, los pensamientos intrusivos y los síntomas físicos de la ansiedad.</p>
+                </div>
+
+                <div class="servicio-card">
+                    <div class="servicio-emoji">🌿</div>
+                    <h3 class="servicio-title">Apoyo en duelo</h3>
+                    <p class="servicio-description">Acompañamiento emocional en procesos de pérdida con respeto, contención y escucha activa.</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+<section class="contenedor-doble">
+    <!-- BENEFICIOS DE LA TERAPIA -->
+    <div class="card">
+        <h3 class="titulo-seccion">¿Por qué acudir a terapia?</h3>
+        <ul class="lista">
+            <li>✔️ Mejora la autoestima y la autocomprensión.</li>
+            <li>✔️ Aprende herramientas para gestionar el estrés y la ansiedad.</li>
+            <li>✔️ Fortalece tus relaciones interpersonales.</li>
+            <li>✔️ Toma decisiones importantes con mayor claridad.</li>
+            <li>✔️ Recupera tu bienestar emocional.</li>
+        </ul>
+    </div>
+
+    <!-- INFORMACIÓN SOBRE SESIONES -->
+    <div class="card" style="background: #f8fdfb; padding: 2rem; border-radius: 16px; box-shadow: 0 6px 18px rgba(0,0,0,0.05);">
+        <h3 class="titulo-seccion" style="color: var(--primary-text); font-size: 1.8rem; text-align: center; margin-bottom: 1rem;">
+            ¿Qué esperar de una sesión?
+        </h3>
+        <p class="descripcion" style="color: #444; font-size: 1rem; max-width: 800px; margin: 0 auto; line-height: 1.7;">
+            Las sesiones en <strong>Inmente</strong> tienen una duración aproximada de <strong>50 minutos</strong> y están diseñadas para brindarte un espacio seguro, confidencial y libre de juicios.
+        </p>
+        <ul style="margin-top: 1rem; max-width: 800px; margin-left: auto; margin-right: auto; color: #444; line-height: 1.7;">
+            <li>🧠 <strong>Exploramos tus emociones, pensamientos y comportamientos</strong> para comprender mejor lo que estás viviendo.</li>
+            <li>📈 <strong>Te acompañamos a tu ritmo</strong>, monitoreando avances y ajustando el proceso según tus progresos.</li>
+        </ul>
     </div>
 </section>
-
-
-<!-- Footer -->
-<footer class="footer-personalizado">
-
-        <ul class="footer-links">
-            <li><a href="#">Acerca de</a></li>
-            <li><a href="#">Privacidad</a></li>
-            <li><a href="#">Licencias</a></li>
-            <li><a href="#">Contacto</a></li>
-        </ul>
-        <div class="footer-social">
-            <a href="#"><i class="fab fa-facebook-f"></i></a>
-            <a href="#"><i class="fab fa-twitter"></i></a>
-            <a href="#"><i class="fab fa-instagram"></i></a>
+</section><!-- ESTADÍSTICAS IMPACTANTES -->
+<section class="estadisticas">
+    <div class="contenedor-stats">
+        <div class="stat-item">
+            <span class="stat-num">+700</span>
+            <span class="stat-label">Pacientes satisfechos</span>
         </div>
-        <hr />
-        <p class="footer-copy">© 2025 <a href="/">Inmente</a>. Todos los derechos reservados.</p>
+        <div class="stat-item">
+            <span class="stat-num">12 años</span>
+            <span class="stat-label">De experiencia clínica</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-num">98%</span>
+            <span class="stat-label">Nivel de satisfacción</span>
+        </div>
+    </div>
+</section>
+<br>
+<br>
 
+<footer class="footer">
+    <div class="footer-container">
+
+        <!-- Redes sociales -->
+        <div class="footer-socials">
+            <p class="footer-title">Síguenos:</p>
+            <div class="social-icons">
+                <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+
+        <!-- Título central -->
+        <div class="footer-brand">
+            <div class="footer-logo">
+                <i class="fas fa-brain"></i>
+            </div>
+            <h2>Inmente</h2>
+            <p>Tu bienestar mental es nuestra prioridad</p>
+        </div>
+
+        <!-- Contacto -->
+        <div class="footer-contact">
+            <a href="tel:+593991234567" class="contact-button">
+                <i class="fas fa-phone"></i>
+                Contactar
+            </a>
+        </div>
+
+    </div>
+
+    <!-- Línea divisoria -->
+    <hr class="footer-divider">
+
+    <!-- Copyright -->
+    <div class="footer-copy">
+        <p>© 2025 <span>Inmente</span> • Todos los derechos reservados</p>
+        <p class="footer-quote">"Estamos contigo en cada paso hacia tu bienestar"</p>
+    </div>
 </footer>
 
-<script>
-    // Smooth scrolling for navigation links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                target.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-            }
-        });
-    });
-
-    // Form submission handler
-    document.querySelector('form').addEventListener('submit', function(e) {
-        e.preventDefault();
-        alert('¡Gracias por tu solicitud! Te contactaremos pronto para confirmar tu cita.');
-        this.reset();
-    });
-
-    // Add animation on scroll
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    };
-
-    const observer = new IntersectionObserver(function(entries) {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.style.animation = 'fadeInUp 0.6s ease forwards';
-            }
-        });
-    }, observerOptions);
-
-    document.querySelectorAll('.service-card, .contact-item, .feature-item, .stat-item').forEach(el => {
-        observer.observe(el);
-    });
-</script>
 </body>
 </html>
